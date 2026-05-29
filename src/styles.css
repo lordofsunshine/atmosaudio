@@ -1,0 +1,535 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  color: #e8edf5;
+  background: #030405;
+  font-family: Manrope, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: geometricPrecision;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #030405;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.shell {
+  min-height: 100vh;
+  padding: 28px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 22px;
+}
+
+.topbar,
+.transport,
+.panel,
+.stage {
+  background: #0a0c10;
+  border: 1px solid #1a1f29;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.46);
+}
+
+.topbar {
+  min-height: 78px;
+  border-radius: 8px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand,
+.topActions,
+.transportInfo,
+.transportActions,
+.effectsTitle,
+.fileCard,
+.playerStrip {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 13px;
+}
+
+.brandMark,
+.fileIcon,
+.playBadge,
+.roundButton {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #eef2f8;
+  background: #1f2633;
+  border: 1px solid #313a4b;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 760;
+}
+
+.brand p,
+.waveHeader p,
+.effectsTitle p,
+.fileCard span,
+.effectRow span,
+.transportInfo span,
+.dropZone span,
+.miniStats span {
+  color: #98a2b8;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.topActions {
+  gap: 12px;
+}
+
+.signal {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border-radius: 999px;
+  color: #d7deec;
+  background: #11141b;
+  border: 1px solid #232936;
+  font-size: 12px;
+}
+
+.signal.done {
+  color: #a7f4e8;
+  border-color: #2a554f;
+}
+
+.signal.error {
+  color: #ffb4a8;
+  border-color: #61332e;
+}
+
+.ghostButton,
+.secondaryButton,
+.primaryButton,
+.downloadButton {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border-radius: 8px;
+  padding: 0 15px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+.ghostButton,
+.secondaryButton {
+  color: #e7ebf2;
+  background: #11141b;
+  border: 1px solid #252b38;
+}
+
+.primaryButton,
+.downloadButton {
+  color: #07090d;
+  background: #eef2f8;
+  font-weight: 760;
+}
+
+.downloadButton {
+  min-width: 132px;
+}
+
+.downloadButton.disabled,
+button:disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.ghostButton:hover,
+.secondaryButton:hover,
+.primaryButton:hover,
+.downloadButton:hover {
+  transform: translateY(-1px);
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(480px, 1.38fr);
+  gap: 18px;
+  min-height: 0;
+}
+
+.panel,
+.stage {
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.uploadPanel {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.dropZone {
+  min-height: 238px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px dashed #343c4d;
+  background: #0d1016;
+  color: #e8edf5;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 11px;
+  cursor: pointer;
+}
+
+.dropZone svg {
+  color: #b7c0cf;
+}
+
+.dropZone strong {
+  font-size: 18px;
+}
+
+.fileCard {
+  min-height: 74px;
+  gap: 12px;
+  padding: 13px;
+  border-radius: 8px;
+  background: #11141b;
+  border: 1px solid #232936;
+}
+
+.fileCard div:last-child {
+  min-width: 0;
+}
+
+.fileCard strong {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.miniStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.miniStats div {
+  min-height: 72px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #10131a;
+  border: 1px solid #202631;
+}
+
+.miniStats strong {
+  display: block;
+  margin-top: 7px;
+  color: #e8edf5;
+  font-size: 18px;
+}
+
+.stage {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.waveHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.waveHeader h2 {
+  margin-top: 4px;
+  font-size: clamp(22px, 3vw, 38px);
+  line-height: 1.04;
+  max-width: 680px;
+  overflow-wrap: anywhere;
+}
+
+.previewToggle {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-radius: 8px;
+  background: #11141b;
+  border: 1px solid #232936;
+}
+
+.previewToggle button {
+  min-width: 72px;
+  min-height: 34px;
+  border-radius: 6px;
+  color: #98a2b8;
+  background: transparent;
+  cursor: pointer;
+}
+
+.previewToggle button.selected {
+  color: #11151c;
+  background: #e8edf5;
+}
+
+.waveform {
+  position: relative;
+  min-height: 310px;
+  display: grid;
+  grid-template-columns: repeat(96, minmax(2px, 1fr));
+  align-items: center;
+  gap: 4px;
+  padding: 28px 18px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #07090d;
+  border: 1px solid #1d2330;
+}
+
+.waveform span {
+  min-height: 16px;
+  border-radius: 999px;
+  background: #d8dee9;
+  box-shadow: 0 0 18px rgba(216, 222, 233, 0.12);
+}
+
+.processingVeil {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  color: #e8edf5;
+  background: rgba(3, 4, 5, 0.82);
+  font-weight: 760;
+}
+
+.playerStrip {
+  gap: 12px;
+  min-height: 66px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #10131a;
+  border: 1px solid #202631;
+}
+
+audio {
+  width: 100%;
+  height: 40px;
+  color-scheme: dark;
+}
+
+.emptyPlayer {
+  color: #98a2b8;
+  font-size: 13px;
+}
+
+.effectsPanel {
+  display: grid;
+  align-content: start;
+  gap: 13px;
+}
+
+.effectsTitle {
+  gap: 11px;
+  padding-bottom: 6px;
+}
+
+.effectsTitle svg {
+  color: #b7c0cf;
+}
+
+.effectsTitle h3 {
+  font-size: 18px;
+}
+
+.effectRow {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px;
+  border-radius: 8px;
+  background: #10131a;
+  border: 1px solid #202631;
+}
+
+.effectRow strong,
+.effectRow span {
+  display: block;
+}
+
+.effectRow strong {
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.effectRow b {
+  min-width: 46px;
+  min-height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  color: #e8edf5;
+  background: #1f2633;
+  border: 1px solid #313a4b;
+  font-size: 12px;
+}
+
+.errorBox {
+  padding: 13px;
+  border-radius: 8px;
+  color: #ffcfca;
+  background: #1b0f0f;
+  border: 1px solid #5a2d29;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.transport {
+  min-height: 82px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.transportInfo {
+  gap: 12px;
+  min-width: 0;
+}
+
+.roundButton {
+  color: #eef2f8;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.transportInfo strong,
+.transportInfo span {
+  display: block;
+}
+
+.transportInfo strong {
+  font-size: 14px;
+}
+
+.transportInfo span {
+  margin-top: 3px;
+  overflow-wrap: anywhere;
+}
+
+.transportActions {
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.spin {
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1050px) {
+  .shell {
+    padding: 18px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .waveform {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 720px) {
+  .shell {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .topbar,
+  .transport,
+  .waveHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .topActions,
+  .transportActions {
+    width: 100%;
+  }
+
+  .ghostButton,
+  .secondaryButton,
+  .primaryButton,
+  .downloadButton {
+    flex: 1 1 auto;
+  }
+
+  .miniStats {
+    grid-template-columns: 1fr;
+  }
+
+  .waveform {
+    gap: 2px;
+    min-height: 220px;
+    padding-inline: 10px;
+  }
+}
